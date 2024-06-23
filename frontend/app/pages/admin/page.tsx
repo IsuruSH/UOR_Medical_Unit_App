@@ -4,6 +4,7 @@ const page = () => {
   return (
     <div>
       Admin
+      Text changed
     </div>
   )
 }

@@ -136,6 +136,114 @@ UOR_Medical_Unit_App/
 └── README.md
 
 
+# Branch Workflow
+
+This document explains the branching strategy used in this project for development, testing, and deployment.
+
+## Branches
+
+- `main`: The main production branch.
+- `development`: The branch for active development.
+- `testing`: The branch for testing and quality assurance.
+- `deployment`: The branch for deployment to production.
+
+## Workflow
+
+### Development
+
+1. **Create a new feature branch:**
+
+    ```bash
+    git checkout -b feature/your-feature-name
+    ```
+
+2. **Work on the feature, commit changes, and push the branch:**
+
+    ```bash
+    git add .
+    git commit -m "Add your feature"
+    git push -u origin feature/your-feature-name
+    ```
+
+3. **Create a pull request to merge the feature branch into `development`.**
+
+### Testing
+
+1. **Merge `development` into `testing`:**
+
+    ```bash
+    git checkout testing
+    git merge development
+    ```
+
+2. **Push the `testing` branch:**
+
+    ```bash
+    git push origin testing
+    ```
+
+3. **Test the application and fix any bugs.**
+
+### Deployment
+
+1. **Merge `testing` into `deployment`:**
+
+    ```bash
+    git checkout deployment
+    git merge testing
+    ```
+
+2. **Push the `deployment` branch:**
+
+    ```bash
+    git push origin deployment
+    ```
+
+3. **Deploy the application from the `deployment` branch.**
+
+## Best Practices
+
+- Always keep the `main` branch stable and deployable.
+- Use feature branches for new features and bug fixes.
+- Regularly merge `development` into `testing` for continuous integration.
+- Ensure the `testing` branch is stable before merging into `deployment`.
+
+## Setting Up Local Branches
+
+1. **Clone the repository:**
+
+    ```bash
+    git clone https://github.com/yourusername/your-repository.git
+    cd your-repository
+    ```
+
+2. **Fetch all branches:**
+
+    ```bash
+    git fetch --all
+    ```
+
+3. **Checkout to `development` branch:**
+
+    ```bash
+    git checkout development
+    ```
+
+4. **Repeat for `testing` and `deployment` branches:**
+
+    ```bash
+    git checkout testing
+    git checkout deployment
+    ```
+
+## Collaboration
+
+- Communicate with your team to avoid conflicts.
+- Review and test code thoroughly before merging.
+- Use pull requests for code reviews and discussions.
+
+
+
 ## Technologies Used
 
 - **Backend:**

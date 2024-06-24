@@ -1,13 +1,16 @@
-import Sidebar from '@/components/admin/sidebar'
+// /pages/admin/page.tsx
+
+
 import React from 'react'
 
 
-const page = () => {
+const Page = () => {
+  
   return (
-    <div className='bg-[#D4E3F0]'>
-      <Sidebar />
+    <div>
+      test
     </div>
   )
 }
 
-export default page
+export default Page

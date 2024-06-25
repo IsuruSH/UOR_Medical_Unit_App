@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 const AdminLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   return (
-    <div className="bg-[#D4E3F0] flex">
+    <div className="bg-[#F2F8FD] flex">
       <Sidebar />
       <div className="flex-grow">
         {children}

@@ -21,30 +21,33 @@ const page = () => {
               <th className="p-2">STATUS</th>
             </tr>
           </thead>
-          <tr className="border-b border-collapse border-solid border-[#B9B9B9]">
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-          </tr>
-          <tr className="border-b border-collapse border-solid border-[#B9B9B9]">
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-          </tr>
-          <tr className="border-b border-collapse border-solid border-[#B9B9B9]">
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-          </tr>
+          <tbody>
+            <tr className="border-b border-collapse border-solid border-[#B9B9B9]">
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+            </tr>
+            <tr className="border-b border-collapse border-solid border-[#B9B9B9]">
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+            </tr>
+            <tr className="border-b border-collapse border-solid border-[#B9B9B9]">
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+            </tr>
+          </tbody>
+          
         </table>
       </div>
 
@@ -63,30 +66,33 @@ const page = () => {
               <th className="p-2">STATUS</th>
             </tr>
           </thead>
-          <tr className="border-b border-collapse border-solid border-[#B9B9B9]">
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-          </tr>
-          <tr className="border-b border-collapse border-solid border-[#B9B9B9]">
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-          </tr>
-          <tr className="border-b border-collapse border-solid border-[#B9B9B9]">
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-          </tr>
+          <tbody>
+            <tr className="border-b border-collapse border-solid border-[#B9B9B9]">
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+            </tr>
+            <tr className="border-b border-collapse border-solid border-[#B9B9B9]">
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+            </tr>
+            <tr className="border-b border-collapse border-solid border-[#B9B9B9]">
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+            </tr>
+          </tbody>
+          
         </table>
       </div>
       <div className="text-dark-green  mt-5">
@@ -104,30 +110,33 @@ const page = () => {
               <th className="p-2">STATUS</th>
             </tr>
           </thead>
-          <tr className="border-b border-collapse border-solid border-[#B9B9B9]">
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-          </tr>
-          <tr className="border-b border-collapse border-solid border-[#B9B9B9]">
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-          </tr>
-          <tr className="border-b border-collapse border-solid border-[#B9B9B9]">
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-            <td className="p-1">ff</td>
-          </tr>
+          <tbody>
+            <tr className="border-b border-collapse border-solid border-[#B9B9B9]">
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+            </tr>
+            <tr className="border-b border-collapse border-solid border-[#B9B9B9]">
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+            </tr>
+            <tr className="border-b border-collapse border-solid border-[#B9B9B9]">
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+              <td className="p-1">ff</td>
+            </tr>
+          </tbody>
+          
         </table>
       </div>
     </div>

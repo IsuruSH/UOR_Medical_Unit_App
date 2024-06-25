@@ -1,11 +1,11 @@
-import Button from '@/components/student/Button'
+
+import Header from '@/components/student/Header'
 import React from 'react'
 
 const page = () => {
   return (
     <div className=''>
-      Student
-      <Button type='Log Out' style='h-10 w-28'/>
+      page
     </div>
   )
 }

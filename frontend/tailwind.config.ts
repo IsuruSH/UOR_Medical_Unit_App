@@ -15,9 +15,11 @@ const config: Config = {
         'green': '#6A994E',
         'light-green': '#A7C957',
         'black': '#000000',
-        'white': '#ffffff',
-        
+        'white': '#ffffff',        
       },
+      backgroundImage: {
+        'image-baground': "url('../public/images/student/bgImage.jpg')",
+      }
     },
   },
   plugins: [],

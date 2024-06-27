@@ -1,11 +1,9 @@
-
-import Header from '@/components/student/Header'
 import React from 'react'
 
 const page = () => {
   return (
-    <div className=''>
-      page
+    <div className='bg-image-baground h-500 bg-contain bg-no-repeat relative'>
+     main page
     </div>
   )
 }

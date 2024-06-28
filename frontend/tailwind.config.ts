@@ -18,7 +18,16 @@ const config: Config = {
         'white': '#ffffff',        
       },
       backgroundImage: {
-        'image-baground': "url('../public/images/student/bgImage.jpg')",
+        'image-baground': "url('../public/images/student/uorBgImg.jpg')",
+      },
+      spacing: {
+        '150': '32rem',
+      },
+      width: {
+        '200': '42rem',
+      },
+      borderRadius:{
+        '5xl':'60px',
       }
     },
   },

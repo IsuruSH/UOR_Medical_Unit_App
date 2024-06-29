@@ -15,9 +15,20 @@ const config: Config = {
         'green': '#6A994E',
         'light-green': '#A7C957',
         'black': '#000000',
-        'white': '#ffffff',
-        
+        'white': '#ffffff',        
       },
+      backgroundImage: {
+        'image-baground': "url('../public/images/student/uorBgImg.jpg')",
+      },
+      spacing: {
+        '150': '32rem',
+      },
+      width: {
+        '200': '42rem',
+      },
+      borderRadius:{
+        '5xl':'60px',
+      }
     },
   },
   plugins: [],

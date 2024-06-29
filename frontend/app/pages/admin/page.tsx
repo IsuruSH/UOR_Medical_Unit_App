@@ -1,11 +1,16 @@
+// /pages/admin/page.tsx
+
+
 import React from 'react'
 
-const page = () => {
+
+const Page = () => {
+  
   return (
     <div>
-      Admin
+      test
     </div>
   )
 }
 
-export default page
+export default Page

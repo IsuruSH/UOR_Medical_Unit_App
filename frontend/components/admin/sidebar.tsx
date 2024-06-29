@@ -84,7 +84,7 @@ const Sidebar = () => {
         </div>
         <div>
           <div className='text-dark-green'>
-                <button   className={`flex gap-3 w-[70%] pl-4 pr-12 py-2 rounded-lg `}>
+                <button   className={`flex gap-3 ml-4 py-2 rounded-lg `}>
                   <div className='text-xl'>
                     <CiLogout />
                   </div>

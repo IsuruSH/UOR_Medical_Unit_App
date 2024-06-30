@@ -9,10 +9,10 @@ import Button from './button'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-const Header = () => {
+const header = () => {
 
   const pathname2=usePathname()
-  const profileDetailsPathName="/pages/student/profileDetails"
+  const profileDetailsPathName="/pages/doctor/profiledetails"
 
   return (
     <div> 
@@ -29,4 +29,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default header

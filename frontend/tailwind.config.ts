@@ -28,7 +28,10 @@ const config: Config = {
       },
       borderRadius:{
         '5xl':'60px',
-      }
+      },
+      screens:{
+        'vsm':'320px'
+      },
     },
   },
   plugins: [],

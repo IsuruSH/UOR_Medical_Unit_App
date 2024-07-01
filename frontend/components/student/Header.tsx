@@ -16,9 +16,9 @@ const Header = () => {
 
   return (
     <>
-    <div className='sticky top-2 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-zinc-50/10 dark:border-zinc-50/[0.06] bg-white supports-backdrop-blur:bg-white/95 dark:bg-zinc-50/25'> 
+    <div className='sticky top-1 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-zinc-50/10 dark:border-zinc-50/[0.06] bg-white supports-backdrop-blur:bg-white/95 dark:bg-zinc-50/25'> 
         <div className='flex justify-between items-center'> 
-          <div className='vsm:max-md:w-72'>
+          <div className='vsm:max-md:w-72 pt-3'>
             <Image src={logoUni} alt='University logo with name'/> 
           </div>
 

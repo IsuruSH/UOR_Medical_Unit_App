@@ -7,6 +7,11 @@ import "../../app/globals.css"
 
 const CustomDatePicker: React.FC = () => {
     const [startDate, setStartDate] = useState<Date | null>(new Date());
+    const [showDatePicker, setShowDatePicker] = useState<boolean>(false);
+
+    const handleButtonClick = () => {
+        setShowDatePicker(!showDatePicker);
+    };
 
     return (
         <div >
@@ -26,11 +31,19 @@ const CustomDatePicker: React.FC = () => {
                 </div>
             </div>
             <div className="date-picker-bottom">
-                <button>
+                <button onClick={handleButtonClick}>
                     <FontAwesomeIcon icon={faCalendarDays}
                                      className="w-5 h-5 text-gray bg-transparent"
                     />
                 </button>
+                {showDatePicker && (
+                    <DatePicker
+                        selected={startDate}
+                        onChange={(date: Date | null) => setStartDate(date)}
+                        dateFormat="dd/MM/yyyy"
+                        className="text-center w-28 focus:outline-none bg-transparent border-2 border-gray rounded-lg"
+                    />
+                )}
             </div>
         </div>
     );

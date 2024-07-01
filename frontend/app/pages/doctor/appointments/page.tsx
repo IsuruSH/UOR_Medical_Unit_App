@@ -1,11 +1,321 @@
-import React from 'react'
+"use client";
+import React, {useState} from 'react';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faMagnifyingGlass, faRotateRight} from "@fortawesome/free-solid-svg-icons";
 
-const page = () => {
-  return (
-    <div>
-      This is Doctor's appointments page
-    </div>
-  )
+const patientDetails = [
+    {
+        "id": "36-708-5209",
+        "name": "Herc O'Drought",
+        "details": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.\n\nNullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.",
+        "time": "3:53 PM"
+    }, {
+        "id": "21-429-2318",
+        "name": "Lucio Woolner",
+        "details": "Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.\n\nPraesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.\n\nMorbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.",
+        "time": "12:40 PM"
+    }, {
+        "id": "39-641-4320",
+        "name": "Meir Sehorsch",
+        "details": "Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.\n\nQuisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.",
+        "time": "2:46 AM"
+    }, {
+        "id": "28-437-9236",
+        "name": "Beale Bogaert",
+        "details": "In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.\n\nMaecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.",
+        "time": "11:28 AM"
+    }, {
+        "id": "96-992-3414",
+        "name": "Jorge O'Shevlan",
+        "details": "In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.\n\nAliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.",
+        "time": "3:37 AM"
+    }, {
+        "id": "59-196-6614",
+        "name": "Vasilis Luety",
+        "details": "Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.\n\nInteger tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.\n\nPraesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.",
+        "time": "5:52 AM"
+    }, {
+        "id": "04-421-7356",
+        "name": "Leanora Sotham",
+        "details": "Phasellus in felis. Donec semper sapien a libero. Nam dui.",
+        "time": "2:57 PM"
+    }, {
+        "id": "94-492-3517",
+        "name": "Valle Easun",
+        "details": "Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.\n\nPhasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.",
+        "time": "1:26 AM"
+    }, {
+        "id": "38-322-1539",
+        "name": "Mab Brigginshaw",
+        "details": "Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.\n\nDuis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.\n\nMauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.",
+        "time": "5:37 PM"
+    }, {
+        "id": "41-085-0054",
+        "name": "Gideon Burgott",
+        "details": "Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.\n\nNullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.",
+        "time": "5:29 PM"
+    }, {
+        "id": "34-761-4591",
+        "name": "Roselin Caherny",
+        "details": "Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.",
+        "time": "12:34 PM"
+    }, {
+        "id": "39-767-3620",
+        "name": "Hieronymus Bellhouse",
+        "details": "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.\n\nEtiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.",
+        "time": "2:24 PM"
+    }, {
+        "id": "77-229-0175",
+        "name": "Myrtie Glason",
+        "details": "Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.\n\nDuis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.\n\nIn sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.",
+        "time": "9:26 PM"
+    }, {
+        "id": "51-981-7946",
+        "name": "Georges Estable",
+        "details": "In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.",
+        "time": "12:10 AM"
+    }, {
+        "id": "35-285-5910",
+        "name": "Pietra Shorie",
+        "details": "Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.",
+        "time": "10:56 AM"
+    }, {
+        "id": "16-370-9024",
+        "name": "Heath Nield",
+        "details": "Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.\n\nMauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.",
+        "time": "7:06 AM"
+    }, {
+        "id": "02-702-2628",
+        "name": "Erena Glaister",
+        "details": "Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.\n\nPellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.",
+        "time": "7:05 AM"
+    }, {
+        "id": "08-744-3134",
+        "name": "Brinna Hadeke",
+        "details": "Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.\n\nProin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.",
+        "time": "9:32 AM"
+    }, {
+        "id": "06-440-4911",
+        "name": "Elisabeth Bridie",
+        "details": "Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.\n\nPraesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.",
+        "time": "1:21 PM"
+    }, {
+        "id": "18-759-2631",
+        "name": "Nanni Farens",
+        "details": "Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.\n\nIn sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.\n\nSuspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.",
+        "time": "6:07 PM"
+    }, {
+        "id": "89-221-8400",
+        "name": "Kendrick Barrar",
+        "details": "Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.\n\nCurabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.",
+        "time": "7:55 PM"
+    }, {
+        "id": "39-045-5842",
+        "name": "Gay Bernhard",
+        "details": "Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.",
+        "time": "10:35 AM"
+    }, {
+        "id": "18-874-0059",
+        "name": "Alasteir Noyce",
+        "details": "Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.\n\nCurabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.",
+        "time": "1:04 PM"
+    }, {
+        "id": "20-439-8764",
+        "name": "Oates Queyeiro",
+        "details": "Phasellus in felis. Donec semper sapien a libero. Nam dui.",
+        "time": "12:13 AM"
+    }, {
+        "id": "91-820-9280",
+        "name": "Warden Feehily",
+        "details": "Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.\n\nMorbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.\n\nFusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.",
+        "time": "11:19 AM"
+    }, {
+        "id": "08-152-6677",
+        "name": "Grenville Bedboro",
+        "details": "Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.",
+        "time": "2:29 AM"
+    }, {
+        "id": "42-946-6746",
+        "name": "Shayna Kitchinham",
+        "details": "Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.",
+        "time": "5:15 AM"
+    }, {
+        "id": "65-705-9754",
+        "name": "Xylina Deelay",
+        "details": "Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.\n\nFusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.\n\nSed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.",
+        "time": "7:48 AM"
+    }, {
+        "id": "50-353-1480",
+        "name": "Antonia Di Bartolommeo",
+        "details": "Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.\n\nPhasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.",
+        "time": "11:23 AM"
+    }, {
+        "id": "45-288-2386",
+        "name": "Kristos Vogeler",
+        "details": "Phasellus in felis. Donec semper sapien a libero. Nam dui.",
+        "time": "6:07 AM"
+    }, {
+        "id": "42-623-8236",
+        "name": "Ada Hallwood",
+        "details": "Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.\n\nPraesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.\n\nCras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
+        "time": "4:51 PM"
+    }, {
+        "id": "48-689-3211",
+        "name": "Guinevere Sorel",
+        "details": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.\n\nNullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.",
+        "time": "6:33 AM"
+    }, {
+        "id": "51-969-7459",
+        "name": "Kassia Grishagin",
+        "details": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.\n\nNullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.\n\nIn quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.",
+        "time": "7:51 AM"
+    }, {
+        "id": "26-653-4642",
+        "name": "Eb Friedank",
+        "details": "Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.\n\nDuis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.\n\nIn sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.",
+        "time": "6:44 PM"
+    }, {
+        "id": "31-808-5297",
+        "name": "Janifer Farthing",
+        "details": "Phasellus in felis. Donec semper sapien a libero. Nam dui.\n\nProin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.\n\nInteger ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.",
+        "time": "9:39 AM"
+    }, {
+        "id": "27-949-2340",
+        "name": "Gerda MacFadzan",
+        "details": "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.",
+        "time": "5:48 PM"
+    }, {
+        "id": "48-695-9726",
+        "name": "Dewitt Lemmers",
+        "details": "Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.\n\nCurabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.\n\nPhasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.",
+        "time": "5:11 PM"
+    }, {
+        "id": "38-221-7439",
+        "name": "Duffie Kidman",
+        "details": "Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.\n\nInteger tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.",
+        "time": "11:21 PM"
+    }, {
+        "id": "67-157-1894",
+        "name": "Yelena Huxster",
+        "details": "Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.",
+        "time": "9:01 AM"
+    }, {
+        "id": "45-247-9792",
+        "name": "Urbain Larter",
+        "details": "Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.",
+        "time": "10:08 AM"
+    }, {
+        "id": "37-956-8254",
+        "name": "Noah McCrae",
+        "details": "Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.",
+        "time": "8:39 AM"
+    }, {
+        "id": "15-627-5586",
+        "name": "Jackie Wayne",
+        "details": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.\n\nVestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.\n\nDuis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.",
+        "time": "2:49 AM"
+    }, {
+        "id": "73-813-1054",
+        "name": "Jennette Paik",
+        "details": "Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.",
+        "time": "7:39 PM"
+    }, {
+        "id": "59-489-7887",
+        "name": "Andriana Barzen",
+        "details": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.\n\nVestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.",
+        "time": "5:35 PM"
+    }, {
+        "id": "63-510-8131",
+        "name": "Marthena Coxall",
+        "details": "Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.\n\nDuis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.",
+        "time": "2:44 AM"
+    }, {
+        "id": "08-913-5450",
+        "name": "Franklyn Stonhard",
+        "details": "Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.\n\nIn hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.",
+        "time": "7:34 PM"
+    }, {
+        "id": "64-089-0607",
+        "name": "Bronnie Rizzo",
+        "details": "Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.\n\nIn hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.",
+        "time": "3:09 AM"
+    }, {
+        "id": "61-109-2641",
+        "name": "Cort Lovekin",
+        "details": "Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.\n\nIn hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.\n\nAliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.",
+        "time": "1:00 PM"
+    }, {
+        "id": "93-265-4695",
+        "name": "Kassia Ruggiero",
+        "details": "Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.",
+        "time": "2:57 PM"
+    }, {
+        "id": "81-248-1156",
+        "name": "Genny Norgate",
+        "details": "In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.\n\nSuspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.\n\nMaecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.",
+        "time": "10:28 AM"
+    }]
+
+const Page: React.FC = () => {
+
+    const [search, setSearch] = useState("");
+
+    return (
+        <div className="w-full h-auto p-2">
+            <div className="mb-2 h-auto w-full flex justify-between items-center">
+                <div className="ml-2 flex items-center">
+                    <button>
+                        <FontAwesomeIcon icon={faRotateRight} className="md:h-6 md:w-6 w-5 h-5 text-gray"/>
+                    </button>
+                </div>
+                <div className="flex items-center justify-center border-2 border-gray w-48 md:w-60 rounded-lg p-1 mr-2">
+                    <FontAwesomeIcon icon={faMagnifyingGlass} className='md:w-5 md:h-5 w-4 h-4 text-gray'/>
+                    <input type="text" placeholder="Search here..." className="text-sm md:text-base w-full focus:outline-none bg-transparent"
+                           onChange={(e) => setSearch(e.target.value)}
+                    />
+                </div>
+            </div>
+            <div className="overflow-auto h-300 xl:h-500 2xl:h-800 shadow-md rounded-md">
+                <table className="table-inner w-720 md:w-full text-xs lg:text-base 2xl:text-xl">
+                    <thead className='bg-white-3 sticky top-0 shadow-md'>
+                    <tr>
+                        <th className='p-3 text-center'>APPOINTMENT NO</th>
+                        <th className='p-3 text-center'>Stu-ID</th>
+                        <th className='p-3 text-center'></th>
+                        <th className='p-3 text-center'>TIME</th>
+                        <th className='p-3 text-center'>DESCRIPTION</th>
+                        <th className='p-3 text-center'>STATUS</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {
+                        patientDetails.filter((patient) => {
+                            return search.toLowerCase() === '' ? patient : patient.id.toLowerCase().includes(search);
+                        }).map((patient, index) => (
+                            <tr key={index}>
+                                <td className='p-3 text-center'>
+                                    <a href="" className="hover:text-light-green">{index + 1}</a>
+                                </td>
+                                <td className='p-3 text-center'>{patient.id}</td>
+                                <td className='p-3 text-center'>
+                                    <button className="text-light-green bg-white-2 px-5 rounded-xl">Details</button>
+                                </td>
+                                <td className='p-3 text-center'>{patient.time}</td>
+                                <td className='p-3 text-center'>
+                                    <input type="text" placeholder="........................................"
+                                           className='text-center bg-transparent focus:border-none'/>
+                                </td>
+                                <td className='p-3 text-center'>
+                                    <button className="text-light-green bg-white-2 px-5 rounded-xl">Approve</button>
+                                </td>
+                            </tr>
+                        ))
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    )
 }
 
-export default page
+export default Page

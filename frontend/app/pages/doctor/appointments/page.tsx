@@ -2,6 +2,7 @@
 import React, {useState} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faMagnifyingGlass, faRotateRight} from "@fortawesome/free-solid-svg-icons";
+import DatePicker from '../../../../components/doctor/datePicker'
 
 const patientDetails = [
     {
@@ -263,10 +264,15 @@ const Page: React.FC = () => {
     return (
         <div className="w-full h-auto p-2">
             <div className="mb-2 h-auto w-full flex justify-between items-center">
-                <div className="ml-2 flex items-center">
-                    <button>
-                        <FontAwesomeIcon icon={faRotateRight} className="md:h-6 md:w-6 w-5 h-5 text-gray"/>
-                    </button>
+                <div className="flex items-center">
+                    <div className="ml-2">
+                        <button>
+                            <FontAwesomeIcon icon={faRotateRight} className="md:h-6 md:w-6 w-5 h-5 text-gray"/>
+                        </button>
+                    </div>
+                    <div className="ml-2">
+                        <DatePicker/>
+                    </div>
                 </div>
                 <div className="flex items-center justify-center border-2 border-gray w-48 md:w-60 rounded-lg p-1 mr-2">
                     <FontAwesomeIcon icon={faMagnifyingGlass} className='md:w-5 md:h-5 w-4 h-4 text-gray'/>
@@ -276,7 +282,7 @@ const Page: React.FC = () => {
                 </div>
             </div>
             <div className="overflow-auto h-300 xl:h-500 2xl:h-800 shadow-md rounded-md">
-                <table className="table-inner w-720 md:w-full text-xs lg:text-base 2xl:text-xl">
+                <table className="table-inner w-full text-xs lg:text-base 2xl:text-xl table-outer">
                     <thead className='bg-white-3 sticky top-0 shadow-md'>
                     <tr>
                         <th className='p-3 text-center'>APPOINTMENT NO</th>

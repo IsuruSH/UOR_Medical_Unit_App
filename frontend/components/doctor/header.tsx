@@ -12,7 +12,7 @@ import { usePathname } from 'next/navigation'
 const Header = () => {
 
   const pathname2=usePathname()
-  const profileDetailsPathName="/pages/student/profileDetails"
+  const profileDetailsPathName="/pages/doctor/profiledetails"
 
   return (
     <div> 

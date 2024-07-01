@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     description: "UOR Medical doctor",
   };
 
-const StudentLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
+const DoctorLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   return (
     <div className='pt-5 w-11/12 m-auto'>
       <Header/>
@@ -18,4 +18,4 @@ const StudentLayout = ({ children }: Readonly<{ children: React.ReactNode }>) =>
   )
 }
 
-export default StudentLayout
+export default DoctorLayout

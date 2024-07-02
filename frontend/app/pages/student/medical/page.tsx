@@ -1,8 +1,13 @@
+import StuForm from '@/components/student/StuForm'
 import React from 'react'
 
 const page = () => {
   return (
-    <div>Medical</div>
+    <div>
+      <StuForm>
+        Medical
+      </StuForm>
+    </div>
   )
 }
 

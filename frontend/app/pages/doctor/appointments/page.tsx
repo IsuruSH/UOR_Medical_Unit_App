@@ -4,6 +4,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faMagnifyingGlass, faRotateRight} from "@fortawesome/free-solid-svg-icons";
 import DatePicker from "../../../../components/doctor/datePicker";
 import patientDetails from "../../../../data/doctor/patientDetails.json";
+import "../../../globals.css";
 
 const Page: React.FC = () => {
 

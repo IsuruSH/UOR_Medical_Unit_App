@@ -1,6 +1,6 @@
 import React from 'react'
 
-const page3 = () => {
+const page = () => {
   return (
     <div>
       This is Doctor's overall summary page.
@@ -8,4 +8,4 @@ const page3 = () => {
   )
 }
 
-export default page3
+export default page

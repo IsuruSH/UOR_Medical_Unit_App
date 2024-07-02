@@ -3,3 +3,31 @@
 @tailwind utilities;
 
 
+/*=======doctor-appointment=======*/
+@media only screen and (max-width: 780px){
+    .table-outer{
+        width: 700px;
+    }
+}
+/*=======doctor-appointment=======*/
+
+/*=======component-doctor-datePicker=======*/
+.date-picker-top{
+    display: flex;
+    align-items: center;
+}
+
+.date-picker-bottom{
+    display: none;
+}
+
+@media only screen and (max-width: 780px){
+    .date-picker-top{
+        display: none;
+    }
+
+    .date-picker-bottom{
+        display: flex;
+    }
+}
+/*=======component-doctor-datePicker=======*/

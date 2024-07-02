@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const StudentLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   return (
     <div className='bg-zinc-50 '>
-    <div className='vsm:max-sm:w-min w-11/12 m-auto py-2'>
+    <div className='vsm:max-sm:w-min w-11/12 m-auto py-1'>
       <Header/>
         <div>
             {children}

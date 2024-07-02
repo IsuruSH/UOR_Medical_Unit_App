@@ -4,8 +4,10 @@ import React from 'react'
 const page = () => {
   return (
     <div>
-      <StuForm>
-        Contact
+      <StuForm styles="p-6">
+        <StuForm styles="p-3 w-24">
+          Contact
+        </StuForm>
       </StuForm>
     </div>
   )

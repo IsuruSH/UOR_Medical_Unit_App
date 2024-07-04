@@ -13,6 +13,7 @@ const Header = () => {
 
   const pathname2=usePathname()
   const profileDetailsPathName="/pages/student/profileDetails"
+  const homePathName="/pages/student"
 
   return (
     <>
@@ -34,7 +35,7 @@ const Header = () => {
         
     </div>
       <div className='flex justify-center items-center lg:hidden m-2'>
-            <Link href={"/pages/student/profileDetails"}>{pathname2==profileDetailsPathName?"":<Image src={proIcon} alt='pro icon' width={200} height={200}/>}</Link>
+            <Link href={"/pages/student/profileDetails"}>{pathname2==homePathName?<Image src={proIcon} alt='pro icon' width={200} height={200}/>:""}</Link>
       </div>
     </>
   )

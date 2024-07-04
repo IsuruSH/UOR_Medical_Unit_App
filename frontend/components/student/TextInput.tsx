@@ -62,7 +62,7 @@ const InnerInput = React.forwardRef<
   return (
     <React.Fragment>
       <StyledInput type={type} {...props} ref={ref} id={id} placeholder={placeholder} />
-      <StyledLabel htmlFor={id}>{label}</StyledLabel>
+      <StyledLabel sx={{color: '#000000',}} htmlFor={id}>{label}</StyledLabel>
     </React.Fragment>
   );
 });

@@ -1,8 +1,12 @@
 import React from 'react'
 import Button from '@/components/doctor/button'
-import ProfilePhotoFrame from '@/components/doctor/photoframe';
+import ProfilePhotoFrame from '@/components/doctor/photoframe'
 
-const page = () => {
+type Props={
+  rows:number;
+  cols:number;
+}
+const page = ({rows,cols}:Props) => {
   return (
     <div className="border-4 rounded-xl px-5 py-5 mt-10 mb-10 flex-none">
       <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-5">
@@ -155,10 +159,9 @@ const page = () => {
               </label>
               <div className="mt-2">
                 <textarea
-                  rows='7'
-                  cols='7'
+                  rows={7}
+                  cols={7}
                   name="Biography"
-                  type="text"
                   autoComplete="Biography"
                   className="block w-full rounded-md border-2 border-shadow-green-400 border-green py-1.5 px-2  shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6"
                 />

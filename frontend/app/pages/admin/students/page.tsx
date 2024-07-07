@@ -1,11 +1,6 @@
 import {Metadata} from 'next';
 import React from 'react'
-import Button from "@/components/student/Button";
 
-export const metadata: Metadata = {
-    title: 'Admin',
-    description: 'UOR Medical Admin',
-};
 
 const page = () => {
     return (
@@ -31,7 +26,7 @@ const page = () => {
                         </svg>
                         <input
                             type="text"
-                            placeholder="Search..."
+                            placeholder="Enter Admission Number"
                             className="ml-3 bg-transparent outline-none text-gray-700"
                         />
                     </div>

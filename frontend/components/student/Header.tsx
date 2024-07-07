@@ -13,19 +13,31 @@ const Header = () => {
 
   const pathname2=usePathname()
   const profileDetailsPathName="/pages/student/profileDetails"
+  const homePathName="/pages/student"
 
   return (
-    <div> 
+    <>
+    <div className='sticky top-1 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-zinc-50/10 dark:border-zinc-50/[0.06] bg-white supports-backdrop-blur:bg-white/95 dark:bg-zinc-50/25'> 
         <div className='flex justify-between items-center'> 
-            <Image src={logoUni} alt='University logo with name' width={500} height={50}/> 
+          <div className='vsm:max-md:w-72 pt-3'>
+            <Image src={logoUni} alt='University logo with name'/> 
+          </div>
+
             <div className='flex justify-between items-center gap-7'>
+                <div className='vsm:max-lg:hidden'>
                 <Link href={"/pages/student/profileDetails"}>{pathname2==profileDetailsPathName?"":<Image src={proIcon} alt='pro icon' width={60} height={60}/>}</Link>
+                </div>
                 <Button type="Log Out" style="w-26 h-10"/>      
             </div>
         </div>
-        {pathname2==profileDetailsPathName?"":<Navbar/>}
+                  
+        <Navbar/>
         
     </div>
+      <div className='flex justify-center items-center lg:hidden m-2'>
+            <Link href={"/pages/student/profileDetails"}>{pathname2==homePathName?<Image src={proIcon} alt='pro icon' width={200} height={200}/>:""}</Link>
+      </div>
+    </>
   )
 }
 

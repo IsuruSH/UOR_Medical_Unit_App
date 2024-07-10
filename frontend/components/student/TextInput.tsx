@@ -1,19 +1,91 @@
-import React from 'react'
+"use client";
+import * as React from 'react';
+import { styled } from '@mui/joy/styles';
+import Input from '@mui/joy/Input';
 
-//you can add width as style and spasing
-const TextInput = ({styles}:any) => {
+const StyledInput = styled('input')({
+  border: 'none', // remove the native input border
+  minWidth: 0, // remove the native input width
+  outline: 0, // remove the native input outline
+  padding: 0, // remove the native input padding
+  paddingTop: '1em',
+  flex: 1,
+  color: 'inherit',
+  backgroundColor: 'transparent',
+  fontFamily: 'inherit',
+  fontSize: 'inherit',
+  fontStyle: 'inherit',
+  fontWeight: 'inherit',
+  lineHeight: 'inherit',
+  textOverflow: 'ellipsis',
+  '&::placeholder': {
+    opacity: 0,
+    transition: '0.1s ease-out',
+  },
+  '&:focus::placeholder': {
+    opacity: 1,
+  },
+  '&:focus ~ label, &:not(:placeholder-shown) ~ label, &:-webkit-autofill ~ label': {
+    top: '0.5rem',
+    fontSize: '0.75rem',
+  },
+  '&:focus ~ label': {
+    color: '#386641',
+  },
+  '&:-webkit-autofill': {
+    alignSelf: 'stretch', // to fill the height of the root slot
+  },
+  '&:-webkit-autofill:not(* + &)': {
+    marginInlineStart: 'calc(-1 * var(--Input-paddingInline))',
+    paddingInlineStart: 'var(--Input-paddingInline)',
+    borderTopLeftRadius:
+      'calc(var(--Input-radius) - var(--variant-borderWidth, 0px))',
+    borderBottomLeftRadius:
+      'calc(var(--Input-radius) - var(--variant-borderWidth, 0px))',
+  },
+});
+
+const StyledLabel = styled('label')(({ theme }) => ({
+  position: 'absolute',
+  lineHeight: 1,
+  top: 'calc((var(--Input-minHeight) - 1em) / 2)',
+  color: theme.vars.palette.text.tertiary,
+  fontWeight: theme.vars.fontWeight.md,
+  transition: 'all 150ms cubic-bezier(0.4, 0, 0.2, 1)',
+}));
+
+const InnerInput = React.forwardRef<
+  HTMLInputElement,
+  JSX.IntrinsicElements['input'] & { label: string; placeholder: string; type: string }
+>(function InnerInput({ label, placeholder, type, ...props }, ref) {
+  const id = React.useId();
   return (
-<div>
-<div className={`relative min-w-[200px] h-10 ${styles}`}>
-    <input
-      className="peer w-full h-full bg-transparent text-black font-sans font-normal outline outline-0 focus:outline-0 disabled:bg-light-green disabled:border-0 transition-all placeholder-shown:border placeholder-shown:border-black placeholder-shown:border-t-black border focus:border-2 border-t-transparent focus:border-t-transparent text-sm px-3 py-2.5 rounded-[7px] border-blue-gray-200 focus:border-light-green"
-      placeholder=" " /><label
-      className="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-blue-gray-500 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500 transition-all -top-1.5 peer-placeholder-shown:text-sm text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-blue-gray-400 peer-focus:text-black before:border-blue-gray-200 peer-focus:before:!border-light-green after:border-blue-gray-200 peer-focus:after:!border-light-green">Input
-      Purple
-    </label>
-  </div>
-</div>
-  )
+    <React.Fragment>
+      <StyledInput type={type} {...props} ref={ref} id={id} placeholder={placeholder} />
+      <StyledLabel sx={{color: '#000000',}} htmlFor={id}>{label}</StyledLabel>
+    </React.Fragment>
+  );
+});
+
+interface FloatingLabelInputProps {
+  label: string;
+  placeholder: string;
+  type: string;
 }
 
-export default TextInput
+export default function TextInput({ label, placeholder, type }: FloatingLabelInputProps) {
+  return (
+    <Input
+      color="success"
+      slots={{ input: InnerInput }}
+      slotProps={{ input: { label, placeholder, type } }}
+      sx={{ 
+        '--Input-minHeight': '56px',
+        '--Input-radius': '10px',
+        borderColor: '#ccc', // Default border color
+        borderWidth: '1px',
+        borderStyle: 'solid',
+      }}
+    />
+  );
+}

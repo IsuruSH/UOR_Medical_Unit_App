@@ -19,6 +19,7 @@ const config: Config = {
         'white-2': '#F0F1FA',
         'white-3': '#F4F7FC',
         'gray': '#9CA3AF',
+        'purple': '#6226EF',
       },
       backgroundImage: {
         'image-baground': "url('../public/images/student/uorBgImg.jpg')",

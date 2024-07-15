@@ -1,6 +1,6 @@
 import React from "react";
 
-function Notes(){
+function Notes() {
     return (
         <div className="w-full p-5">
             <div className="w-full mb-5">
@@ -11,19 +11,23 @@ function Notes(){
                     <form className="w-full grid grid-cols-1 gap-5">
                         <div className="w-full grid grid-cols-2">
                             <label>Appointment ID :</label>
-                            <input type="text" className="w-full border-2 border-gray rounded-md focus:outline-none bg-transparent"/>
+                            <input type="text"
+                                   className="w-full border-2 border-gray rounded-md focus:outline-none bg-transparent"/>
                         </div>
                         <div className="w-full grid grid-cols-2">
                             <label>Name :</label>
-                            <input type="text" className="w-full border-2 border-gray rounded-md focus:outline-none bg-transparent"/>
+                            <input type="text"
+                                   className="w-full border-2 border-gray rounded-md focus:outline-none bg-transparent"/>
                         </div>
                         <div className="w-full grid grid-cols-2">
                             <label>Sc Number :</label>
-                            <input type="text" className="w-full border-2 border-gray rounded-md focus:outline-none bg-transparent"/>
+                            <input type="text"
+                                   className="w-full border-2 border-gray rounded-md focus:outline-none bg-transparent"/>
                         </div>
-                        <div className="w-full grid grid-cols-2" >
+                        <div className="w-full grid grid-cols-2">
                             <label>Notes :</label>
-                            <textarea name="note" id="" placeholder="Enter notes" className="w-full h-32 border-2 border-gray rounded-md focus:outline-none bg-transparent"></textarea>
+                            <textarea name="note" id="" placeholder="Enter notes"
+                                      className="w-full h-32 border-2 border-gray rounded-md focus:outline-none bg-transparent"></textarea>
                         </div>
                     </form>
                 </div>

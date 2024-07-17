@@ -1,6 +1,5 @@
 "use client";
-import React from "react";
-import {FC} from "react";
+import React, {FC} from "react";
 import Link from "next/link";
 import patientDetails from "../../../../../data/doctor/patientDetails.json";
 
@@ -110,8 +109,13 @@ const Page: FC<pageProps> = ({params}) => {
         }
     }
     return (
-        <div>
-            <p>No such type of patient</p>
+        <div className="w-full flex flex-col gap-5 items-center justify-center">
+            <p className="text-3xl font-bold">No such type of patient</p>
+            <Link href={'/pages/doctor/appointments'}
+                  className="bg-gray text-[#386641] text-lg px-10 rounded-sm font-bold"
+            >
+                Back
+            </Link>
         </div>
     )
 

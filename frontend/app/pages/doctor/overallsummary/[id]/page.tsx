@@ -59,6 +59,16 @@ const Page: FC<pageProps> = ({params}) => {
             );
         }
     }
+    return (
+        <div className="w-full flex flex-col gap-5 items-center justify-center">
+            <p className="text-3xl font-bold">No such type of patient</p>
+            <Link href={'/pages/doctor/overallsummary'}
+                  className="bg-gray text-[#386641] text-lg px-10 rounded-sm font-bold"
+            >
+                Back
+            </Link>
+        </div>
+    )
 }
 
 export default Page;

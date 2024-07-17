@@ -1,5 +1,6 @@
 "use client";
 import React, {useState} from 'react';
+import Link from 'next/link';
 import patientDetails from "../../../../data/doctor/patientDetails.json";
 import "../../../globals.css";
 
@@ -29,7 +30,11 @@ const Page: React.FC = () => {
                                 <td className='p-3 text-center'>{patient.name}</td>
                                 <td className='p-3 text-center'>{patient.id}</td>
                                 <td className='p-3 text-center'>
-                                    <button className="text-light-green bg-white-2 px-5 rounded-xl">Add</button>
+                                    <Link href={`/pages/doctor/overallsummary/${patient.id}`}
+                                        className="text-light-green bg-white-2 px-5 rounded-xl"
+                                    >
+                                        Add
+                                    </Link>
                                 </td>
                                 <td className='p-3 text-center'>
                                 <button className="text-purple bg-white-2 px-5 rounded-xl">Processing</button>

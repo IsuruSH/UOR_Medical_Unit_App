@@ -6,7 +6,6 @@ import DatePicker from "../../../../components/doctor/datePicker";
 import patientDetails from "../../../../data/doctor/patientDetails.json";
 import "../../../globals.css";
 import Link from "next/link";
-import {pages} from "next/dist/build/templates/app-page";
 
 const Page: React.FC = () => {
 

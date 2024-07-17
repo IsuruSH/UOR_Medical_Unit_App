@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import {FC} from "react";
+import Link from "next/link";
 import patientDetails from "../../../../../data/doctor/patientDetails.json";
 
 interface pageProps {
@@ -14,9 +15,13 @@ const Page: FC<pageProps> = ({params}) => {
     for (const item of patientDetails) {
         if (params.details == item.id) {
             return (
-                <div className="w-full h-auto">
+                <div className="w-full h-auto mb-5">
                     <div>
-                        <button className="bg-gray text-[#386641] px-10 rounded-sm">Back</button>
+                        <Link href={'/pages/doctor/appointments'}
+                              className="bg-gray text-[#386641] text-lg px-10 rounded-sm font-bold"
+                        >
+                            Back
+                        </Link>
                     </div>
                     <div className="w-full flex justify-center items-center flex-col md:flex-row gap-5">
                         <div

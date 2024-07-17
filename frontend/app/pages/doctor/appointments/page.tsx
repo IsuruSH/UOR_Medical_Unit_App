@@ -64,7 +64,7 @@ const Page: React.FC = () => {
                                 <td className='p-3 text-center'>{patient.time}</td>
                                 <td className='p-3 text-center'>
                                     <input type="text" placeholder="........................................"
-                                           className='text-center bg-transparent focus:border-none'/>
+                                           className='text-center bg-transparent focus:outline-none'/>
                                 </td>
                                 <td className='p-3 text-center'>
                                     <button className="text-light-green bg-white-2 px-5 rounded-xl">Approve</button>

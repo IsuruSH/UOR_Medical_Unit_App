@@ -21,14 +21,10 @@ const Page: FC<pageProps> = ({params}) => {
                     <div className="w-full flex justify-center items-center flex-col md:flex-row gap-5">
                         <div
                             className="min-w-[350px] flex flex-col items-center justify-start py-10 bg-[#F7FBFF] shadow-md rounded-md">
-                            <div className="w-[140px] h-[140px] bg-[#D9D9D9] shadow-md rounded-sm bg-no-repeat bg-cover bg-center"
-                                 style={{backgroundImage: `url(${item.avatar})`}}
+                            <div
+                                className="w-[140px] h-[140px] bg-[#D9D9D9] shadow-md rounded-sm bg-no-repeat bg-cover bg-center"
+                                style={{backgroundImage: `url(${item.avatar})`}}
                             >
-                                {/*<img
-                                    src={item.avatar}
-                                    alt="student.png"
-                                    className="size-full shadow-md rounded-sm"
-                                />*/}
                             </div>
                             <div className="w-full h-auto mt-5">
                                 <table className="w-full text-center">

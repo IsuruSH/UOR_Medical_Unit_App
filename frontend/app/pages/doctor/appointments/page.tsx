@@ -5,17 +5,12 @@ import {faMagnifyingGlass, faRotateRight} from "@fortawesome/free-solid-svg-icon
 import DatePicker from "../../../../components/doctor/datePicker";
 import patientDetails from "../../../../data/doctor/patientDetails.json";
 import "../../../globals.css";
-import {useRouter} from "next/navigation";
+import Link from "next/link";
+import {pages} from "next/dist/build/templates/app-page";
 
 const Page: React.FC = () => {
 
     const [search, setSearch] = useState("");
-    const [id,setId]=useState("2");
-    const router = useRouter();
-
-    const navigateDetails = (id: String) => {
-        router.push(`/pages/doctor/appointments/${id}`);
-    }
 
     return (
         <div className="w-full h-auto p-2">
@@ -61,12 +56,11 @@ const Page: React.FC = () => {
                                 </td>
                                 <td className='p-3 text-center' id="id">{patient.id}</td>
                                 <td className='p-3 text-center'>
-                                    setId(patient.id)
-                                    <button className="text-light-green bg-white-2 px-5 rounded-xl"
-                                            onClick={() => navigateDetails(id)}
+                                    <Link href={`/pages/doctor/appointments/${patient.id}`}
+                                          className="text-light-green bg-white-2 px-5 rounded-xl"
                                     >
                                         Details
-                                    </button>
+                                    </Link>
                                 </td>
                                 <td className='p-3 text-center'>{patient.time}</td>
                                 <td className='p-3 text-center'>
@@ -83,7 +77,8 @@ const Page: React.FC = () => {
                 </table>
             </div>
         </div>
-    )
+    );
+
 }
 
 export default Page

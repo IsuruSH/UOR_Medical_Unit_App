@@ -5,14 +5,14 @@ import patientDetails from "../../../../../data/doctor/patientDetails.json";
 
 interface pageProps {
     params: {
-        addNotes: string;
+        id: string;
     }
 }
 
 const Page: FC<pageProps> = ({params}) => {
 
     for (const item of patientDetails) {
-        if (params.addNotes == item.id) {
+        if (params.id == item.id) {
             return (
                 <div className="w-full p-5">
                     <div className="w-full mb-5">

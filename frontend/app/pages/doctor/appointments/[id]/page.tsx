@@ -6,14 +6,14 @@ import patientDetails from "../../../../../data/doctor/patientDetails.json";
 
 interface pageProps {
     params: {
-        details: string;
+        id: string;
     }
 }
 
 const Page: FC<pageProps> = ({params}) => {
 
     for (const item of patientDetails) {
-        if (params.details == item.id) {
+        if (params.id == item.id) {
             return (
                 <div className="w-full h-auto mb-5">
                     <div>

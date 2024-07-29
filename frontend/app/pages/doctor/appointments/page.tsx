@@ -5,6 +5,7 @@ import {faMagnifyingGlass, faRotateRight} from "@fortawesome/free-solid-svg-icon
 import DatePicker from "../../../../components/doctor/datePicker";
 import patientDetails from "../../../../data/doctor/patientDetails.json";
 import "../../../globals.css";
+import Link from "next/link";
 
 const Page: React.FC = () => {
 
@@ -25,7 +26,8 @@ const Page: React.FC = () => {
                 </div>
                 <div className="flex items-center justify-center border-2 border-gray w-48 md:w-60 rounded-lg p-1 mr-2">
                     <FontAwesomeIcon icon={faMagnifyingGlass} className='md:w-5 md:h-5 w-4 h-4 text-gray'/>
-                    <input type="text" placeholder="Search here..." className="text-sm md:text-base w-full focus:outline-none bg-transparent"
+                    <input type="text" placeholder="Search here..."
+                           className="text-sm md:text-base w-full focus:outline-none bg-transparent"
                            onChange={(e) => setSearch(e.target.value)}
                     />
                 </div>
@@ -51,14 +53,18 @@ const Page: React.FC = () => {
                                 <td className='p-3 text-center'>
                                     <a href="" className="hover:text-light-green">{index + 1}</a>
                                 </td>
-                                <td className='p-3 text-center'>{patient.id}</td>
+                                <td className='p-3 text-center' id="id">{patient.id}</td>
                                 <td className='p-3 text-center'>
-                                    <button className="text-light-green bg-white-2 px-5 rounded-xl">Details</button>
+                                    <Link href={`/pages/doctor/appointments/${patient.id}`}
+                                          className="text-light-green bg-white-2 px-5 rounded-xl"
+                                    >
+                                        Details
+                                    </Link>
                                 </td>
                                 <td className='p-3 text-center'>{patient.time}</td>
                                 <td className='p-3 text-center'>
                                     <input type="text" placeholder="........................................"
-                                           className='text-center bg-transparent focus:border-none'/>
+                                           className='text-center bg-transparent focus:outline-none'/>
                                 </td>
                                 <td className='p-3 text-center'>
                                     <button className="text-light-green bg-white-2 px-5 rounded-xl">Approve</button>
@@ -70,7 +76,8 @@ const Page: React.FC = () => {
                 </table>
             </div>
         </div>
-    )
+    );
+
 }
 
 export default Page

@@ -28,7 +28,7 @@ export default function RadioButton({ options, label }: RowRadioButtonsGroupProp
     <ThemeProvider theme={theme}>
 
     <FormControl>
-      <FormLabel color="success" id="demo-row-radio-buttons-group-label">{label}</FormLabel>
+      <FormLabel color="success" sx={{color: '#000000',}} id="demo-row-radio-buttons-group-label">{label}</FormLabel>
       <RadioGroup
         row
         aria-labelledby="demo-row-radio-buttons-group-label"
@@ -57,4 +57,5 @@ export default function RadioButton({ options, label }: RowRadioButtonsGroupProp
     </ThemeProvider>
   );
 }
+
 

@@ -55,8 +55,8 @@ const InnerTextarea = React.forwardRef<
   const id = React.useId();
   return (
     <React.Fragment>
-      <StyledTextarea minRows={2} {...props} ref={ref} id={id} placeholder={placeholder} />
-      <StyledLabel htmlFor={id}>{label}</StyledLabel>
+      <StyledTextarea  minRows={2} {...props} ref={ref} id={id} placeholder={placeholder} />
+      <StyledLabel sx={{color: '#000000',}} htmlFor={id}>{label}</StyledLabel>
     </React.Fragment>
   );
 });
@@ -80,3 +80,5 @@ export default function TextAreaInput({ label, placeholder }: FloatingLabelTexta
     />
   );
 }
+
+

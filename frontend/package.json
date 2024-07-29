@@ -23,7 +23,11 @@
     "react-datepicker": "^7.2.0",
     "react-dom": "^18.3.1",
     "react-icons": "^5.2.1",
+<<<<<<< HEAD
     "react-router-dom": "^6.25.1"
+=======
+    "tw-elements": "^2.0.0"
+>>>>>>> 56021351be026e319b8af1aba8606899558714de
   },
   "devDependencies": {
     "@types/node": "^20",

@@ -16,7 +16,7 @@ const LoginLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   
   return (
     <div className="bg-[#F2F8FD] flex">
-      <div className="flex-grow ml-80">
+      <div className="flex-grow ">
         {children}
       </div>
     </div>

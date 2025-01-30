@@ -16,7 +16,7 @@ const Page: React.FC = () => {
             <div className="mb-2 h-auto w-full flex justify-between items-center">
                 <div className="flex items-center">
                     <div className="ml-2">
-                        <button>
+                        <button onClick={() => window.location.reload()}>
                             <FontAwesomeIcon icon={faRotateRight} className="md:h-6 md:w-6 w-5 h-5 text-gray"/>
                         </button>
                     </div>
